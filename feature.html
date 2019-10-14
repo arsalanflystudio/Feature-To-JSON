@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>converter</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Font Awesome 5 -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body onload="myFunction()">
+<div style="width:30px;height:30px;position:fixed;float:right;top:50%;right:2px;border-radius:40px;"><i class="fas fa-question-circle fa-2x" data-toggle="modal" data-target="#myModal"></i></div>
+<div class="container-fluid">
+
+<!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Usage</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Paste the seed data into the text area and submit it.<br/>
+		  Choose appropriate options for each field.<br/>
+		  The name field specifies the name of the JSON file.<br/>
+		  Name of field specified between square brackets will be replaced by the value of the field.<br/><br/>
+		  Eg:- If name is given as<br/> 
+					RoleEntity%3a%3a[roleEntityId]<br/>
+				the [roleEntityId] will be replaced by the value of role entity id.<br/><br/>
+			Submit it to download the JSON files.
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+	<div class="form-group">
+		<label for="comment">Table Data:</label>
+		<textarea class="form-control" rows="5" id="data" wrap="off"></textarea>
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-success" onclick="options();" id="submitdata">submit</button>
+	</div>
+
+	<!--<div class="btn-group-vertical form-group">
+		<button type="button" class="btn btn-primary">test</button>
+		<button type="button" class="btn btn-primary">hello</button>
+		<button type="button" class="btn btn-primary">world</button>
+	</div>-->
+	<div id="options" style="display:none;">
+	<table class="table" id="datatable">
+	</table>
+
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input type="textfield" class="form-control" id="name"/>
+	</div>
+	
+	<div class="form-group">
+		<button type="button" class="btn btn-success" onclick="generate();">Submit</button>
+		<button type="button" class="btn btn-danger" onclick="location.reload();">Cancel</button>
+	</div>
+	</div>
+	
+</div>
+
+<script>
+function myFunction() {
+  //alert("Page is loaded");
+  //test();
+}
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
